@@ -16,7 +16,7 @@ public class ConsultationService {
 
 
     public Consultation scheduleConsultation(Consultation consultation) {
-        consultation.setConsultationStatus("PENDING");
+        consultation.setStatus("PENDING");
         return repository.save(consultation);
     }
 
@@ -25,9 +25,8 @@ public class ConsultationService {
     }
 
     public Consultation cancelConsultation(Long id) {
-        Consultation consultation = consultationRepository.findById(id).orElseThrow( ()-> new RuntimeException("Consultation not found"));
-
-        consultation.setConsultationStatus("CANCELLED");
+        Consultation consultation = consultationRepository.findById(id).orElseThrow(() -> new RuntimeException("Consultation not found"));
+        consultation.setStatus("CANCELLED");
         return repository.save(consultation);
     }
 }

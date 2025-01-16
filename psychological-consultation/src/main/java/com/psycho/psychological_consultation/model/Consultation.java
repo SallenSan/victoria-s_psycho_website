@@ -19,7 +19,8 @@ public class Consultation {
     private Long id;
 
     private LocalDateTime consultationDateTime;
-    private String consultationStatus;
+
+    private String status;
 
     @ManyToOne
     @JoinColumn(name = "patient_id")
